@@ -1,10 +1,14 @@
 import redis
 
+from settings import Settings
+
+settings = Settings()
+
 
 def get_redis_connection() -> redis.Redis:
-    return redis.Redis(host='localhost', port=6379, db=0)
+    return redis.Redis(
+        host=settings.CACHE_HOST,
+        port=settings.CACHE_PORT,
+        db=settings.CACHE_DB
+    )
 
-
-def set_pom_count():
-    redis = get_redis_connection()
-    redis.set("pom_count", 1)

@@ -2,8 +2,16 @@ from pydantic_settings import BaseSettings
 
 
 class Settings(BaseSettings):
-    # POSTGRES_USER: str = 'postgres'
-    # POSTGRES_PASSWORD: str = 'password'
-    # POSTGRES_PORT: str = '5436'
-    # POSTGRES_DB: str = 'pomodoro'
+    DB_USER: str = 'postgres'
+    DB_PASSWORD: str = '1111'
+    DB_PORT: int = 5432
     DB_NAME: str = 'pomodoro_db'
+    DB_HOST: str = 'localhost'
+    CACHE_HOST: str = 'localhost'
+    CACHE_PORT: int = 6379
+    CACHE_DB: int = 0
+    DB_DRIVER: str = 'postgresql+psycopg2'
+
+    @property
+    def DB_URL(self):
+        return f'{self.DB_DRIVER}://{self.DB_USER}:{self.DB_PASSWORD}@{self.DB_HOST}:{self.DB_PORT}/{self.DB_NAME}'
