@@ -11,6 +11,8 @@ class Settings(BaseSettings):
     CACHE_PORT: int = 6379
     CACHE_DB: int = 0
     DB_DRIVER: str = 'postgresql+psycopg2'
+    JWT_SECRET_KEY: str = 'secret_key'
+    JWT_ENCODE_ALGORITHM: str = 'HS256'
 
     @property
     def DB_URL(self):
