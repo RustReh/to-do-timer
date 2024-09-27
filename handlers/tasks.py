@@ -1,7 +1,7 @@
 from typing import Annotated
 from fastapi import APIRouter, status, Depends
 
-from dependency import get_task_repository, get_task_service
+from dependency import get_task_repository, get_task_service, get_request_user_id
 
 from database import get_db_session
 from schema.task import TaskSchema
@@ -35,7 +35,8 @@ async def get_task(task_repository: Annotated[TaskRepository, Depends(get_task_r
              )
 async def create_task(
         task: TaskSchema,
-        task_repository: Annotated[TaskRepository, Depends(get_task_repository)]
+        task_repository: Annotated[TaskRepository, Depends(get_task_repository)],
+        user_id: int = Depends(get_request_user_id)
 ):
     task_id = task_repository.create_task(task)
     task.id = task_id

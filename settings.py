@@ -2,7 +2,7 @@ from pydantic_settings import BaseSettings
 
 
 class Settings(BaseSettings):
-    DB_USER: str = 'postgres'
+    DB_USER: str = 'rust'
     DB_PASSWORD: str = '1111'
     DB_PORT: int = 5432
     DB_NAME: str = 'pomodoro_db'
