@@ -40,7 +40,6 @@ async def create_task(
         user_id: int = Depends(get_request_user_id)
 ):
     task = task_service.create_task(body, user_id)
-
     return task
 
 
