@@ -2,7 +2,7 @@ from pydantic_settings import BaseSettings
 
 
 class Settings(BaseSettings):
-    DB_USER: str = 'postgres'
+    DB_USER: str = 'rust'
     DB_PASSWORD: str = '1111'
     DB_PORT: int = 5432
     DB_NAME: str = 'pomodoro_db'
@@ -11,6 +11,8 @@ class Settings(BaseSettings):
     CACHE_PORT: int = 6379
     CACHE_DB: int = 0
     DB_DRIVER: str = 'postgresql+psycopg2'
+    JWT_SECRET_KEY: str = 'secret_key'
+    JWT_ENCODE_ALGORITHM: str = 'HS256'
 
     @property
     def DB_URL(self):

@@ -18,3 +18,4 @@ class TaskCache:
         tasks_json = [task.json() for task in tasks]
         with self.redis as redis:
             redis.lpush('tasks', *tasks_json)
+            redis.expire('tasks', 10)
