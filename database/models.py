@@ -34,4 +34,3 @@ class Categories(Base):
     name: Mapped[str]
     type: Mapped[str]
 
-
