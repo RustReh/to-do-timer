@@ -12,3 +12,6 @@ class TokenExpiredException(Exception):
 
 class TokenNotCorrectException(Exception):
     detail = 'Token is not correct'
+
+class TaskNotFoundException(Exception):
+    detail = 'Task not found'

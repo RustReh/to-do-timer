@@ -7,6 +7,7 @@ class TaskSchema(BaseModel):
     pomodoro_count: int | None = None
     category_id: int | None = None
     asd: str | None = None
+    user_id: int
 
     class Config:
         from_attributes = True
@@ -18,3 +19,8 @@ class TaskSchema(BaseModel):
         print (self)
         return self
 
+class TaskCreateSchema(BaseModel):
+    name: str | None = None
+    pomodoro_count: int | None = None
+    category_id: int | None = None
+    asd: str | None = None
