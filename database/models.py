@@ -1,5 +1,7 @@
 from typing import Any
 
+from sqlalchemy import ForeignKey
+
 from sqlalchemy.orm import Mapped, mapped_column, DeclarativeBase, declared_attr
 
 
@@ -22,6 +24,7 @@ class Tasks(Base):
     pomodoro_count: Mapped[int]
     category_id: Mapped[int]
     asd: Mapped[str]
+    user_id: Mapped[int] = mapped_column(ForeignKey('UserProfile.id'), nullable=False)
 
 
 class Categories(Base):
